@@ -1,10 +1,8 @@
-import { SafeAreaView, StyleSheet } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { SafeAreaView } from 'react-native';
 import WebView from 'react-native-webview';
 
 
 export default function PokedexScreen() {
-
 
   return (
     <SafeAreaView style={{ flex: 1, }}>

@@ -1,14 +1,18 @@
-import { StyleSheet } from 'react-native';
-
-import EditScreenInfo from '@/components/EditScreenInfo';
+import { StyleSheet, Image } from 'react-native';
 import { Text, View } from '@/components/Themed';
+import { MonoText } from '@/components/StyledText';
 
-export default function TabOneScreen() {
+export default function HomeScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Tab One</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/(tabs)/index.tsx" />
+      <Image
+        source={require("@/assets/images/pokemon-cafe.png")}
+        style={styles.image}
+      />
+      <Text style={styles.title}>Bem-vindo à Pokédex</Text>
+      <MonoText style={styles.subtitle}>
+        Explore e descubra seus Pokémon favoritos!
+      </MonoText>
     </View>
   );
 }
@@ -18,14 +22,23 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    paddingHorizontal: 20,
+  },
+  image: {
+    width: 150,
+    height: 150,
+    marginBottom: 20,
   },
   title: {
-    fontSize: 20,
+    fontSize: 28,
     fontWeight: 'bold',
+    color: '#FF4500',
+    textAlign: 'center',
+    marginBottom: 10,
   },
-  separator: {
-    marginVertical: 30,
-    height: 1,
-    width: '80%',
+  subtitle: {
+    textAlign: "center",
+    fontSize: 16,
+
   },
 });
