@@ -10,10 +10,12 @@ export default function PokedexScreen() {
       <WebView
         source={{ uri: "http://192.168.5.66:3000" }}
         cacheEnabled={true}
-          cacheMode={'LOAD_CACHE_ELSE_NETWORK'}
+        cacheMode={'LOAD_CACHE_ELSE_NETWORK'}
         androidLayerType="hardware"
         javaScriptEnabled={true}
         onMessage={message => { console.log({ message }) }}
+        startInLoadingState={true}
+        incognito={false}
       />
     </SafeAreaView>
   );

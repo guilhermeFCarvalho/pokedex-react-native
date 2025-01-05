@@ -1,8 +1,12 @@
 import { StyleSheet, Image } from 'react-native';
 import { Text, View } from '@/components/Themed';
 import { MonoText } from '@/components/StyledText';
+import WebView from 'react-native-webview';
+import { useState } from 'react';
 
 export default function HomeScreen() {
+  const [loaded, setLoaded] = useState(false)
+
   return (
     <View style={styles.container}>
       <Image
@@ -13,6 +17,14 @@ export default function HomeScreen() {
       <MonoText style={styles.subtitle}>
         Explore e descubra seus Pokémon favoritos!
       </MonoText>
+      {!loaded && (
+        <WebView
+          source={{ uri: 'http://192.168.5.66:3000' }}
+          onLoadEnd={() => { setLoaded(true); console.log("loaded") }}
+          cacheEnabled= {true}
+          style={{ width: 0, height: 0 }}
+        />
+      )}
     </View>
   );
 }
