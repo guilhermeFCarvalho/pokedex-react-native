@@ -6,11 +6,17 @@ export default function PokedexScreen() {
 
   return (
     <SafeAreaView style={{ flex: 1, }}>
+
       <WebView
-        source={{ uri: "http://192.168.5.66:3000" }} />
+        source={{ uri: "http://192.168.5.66:3000" }}
+        cacheEnabled={true}
+          cacheMode={'LOAD_CACHE_ELSE_NETWORK'}
+        androidLayerType="hardware"
+        javaScriptEnabled={true}
+        onMessage={message => { console.log({ message }) }}
+      />
     </SafeAreaView>
   );
 }
-
 
 
