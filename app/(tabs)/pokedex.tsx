@@ -1,8 +1,31 @@
+import { addFavorite } from '@/reducers/favorite-slice';
+import { store } from '@/reducers/store';
+import { useCallback } from 'react';
 import { SafeAreaView } from 'react-native';
-import WebView from 'react-native-webview';
+import WebView, { WebViewMessageEvent } from 'react-native-webview';
+import { useDispatch } from 'react-redux';
 
 
 export default function PokedexScreen() {
+  const dispatch = useDispatch();
+
+  const handleWebViewMessage = useCallback((event: WebViewMessageEvent) => {
+    try {
+      const { data } = event.nativeEvent;
+      const parsedData = JSON.parse(data);
+
+      // console.log(parsedData)
+
+      if (parsedData?.pokemon && parsedData?.liked) {
+        dispatch(addFavorite(parsedData.pokemon));
+      }
+    } catch (error) {
+      console.error('Erro ao processar a mensagem do WebView:', error);
+    }
+  }, [dispatch]);
+
+
+
 
   return (
     <SafeAreaView style={{ flex: 1, }}>
@@ -13,7 +36,7 @@ export default function PokedexScreen() {
         cacheMode={'LOAD_CACHE_ELSE_NETWORK'}
         androidLayerType="hardware"
         javaScriptEnabled={true}
-        onMessage={message => { console.log({ message }) }}
+        onMessage={handleWebViewMessage}
         startInLoadingState={true}
         incognito={false}
       />
