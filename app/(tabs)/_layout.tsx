@@ -45,7 +45,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="favorites"
         options={{
-          title: `Favorites${favoriteCount > 0 ? ` (${favoriteCount})` : ''}`,
+          title: `Favoritos${favoriteCount > 0 ? ` (${favoriteCount})` : ''}`,
           tabBarIcon: ({ color }) => {
             return (
 
