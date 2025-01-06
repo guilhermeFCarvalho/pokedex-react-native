@@ -12,18 +12,16 @@ export default function FavoritesScreen() {
   return (
     <View style={styles.container}>
       {pokemons.map((pokemon, index) => {
-
-        console.log(pokemon.image)
-        
         return (
-        <View key={index}>
-          <Image source={{ uri: pokemon.image }} width={100} height={100}></Image>
-          <Text >{pokemon.name}</Text>
-          <Text >{pokemon.types.join(' ')}</Text>
-          <Text >{pokemon.abilities.join(' ')}</Text>
-          
-        </View>
-      )})}
+          <View key={index}>
+            <Image source={{ uri: pokemon.image }} width={100} height={100}></Image>
+            <Text >{pokemon.name}</Text>
+            <Text >{pokemon.types.join(' ')}</Text>
+            <Text >{pokemon.abilities.join(' ')}</Text>
+
+          </View>
+        )
+      })}
 
     </View>
   );
