@@ -20,9 +20,9 @@ export default function HomeScreen() {
       {!loaded && (
         <WebView
           source={{ uri: 'http://192.168.5.66:3000' }}
-          onLoadEnd={() => { setLoaded(true); console.log("loaded") }}
-          cacheEnabled= {true}
-          style={{ width: 0, height: 0 }}
+          onLoadEnd={() => { setLoaded(true) }}
+          cacheEnabled={true}
+          containerStyle={{ width:0, height:0, position:'absolute' }}
         />
       )}
     </View>
