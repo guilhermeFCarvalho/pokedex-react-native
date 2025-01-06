@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 interface Pokemon {
     name: string;
-    url: string;
+    image: string;
     types: string[];
     abilities: string[];
 }
