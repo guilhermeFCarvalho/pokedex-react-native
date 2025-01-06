@@ -31,7 +31,6 @@ const favoritesSlice = createSlice({
                 state.favorites.push(action.payload);
             }
 
-            state.favorites
         },
         removeFavorite(state, action: PayloadAction<string>) {
             state.favorites = state.favorites.filter(

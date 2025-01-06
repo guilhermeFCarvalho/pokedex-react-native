@@ -62,7 +62,7 @@ export default function TabLayout() {
                     right: '-50%'
 
                   }}>
-                  <Text style={{color:'#fff'}}>{favoriteCount}</Text>
+                  <Text style={{ color: '#fff' }}>{favoriteCount}</Text>
                 </View>
               </View>
 
