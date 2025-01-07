@@ -1,33 +1,11 @@
-import { addFavorite, removeFavorite } from '@/reducers/favorite-slice';
-import { useCallback } from 'react';
+import { useWebViewHandler } from '@/src/hooks/useWebViewHandler';
 import { SafeAreaView } from 'react-native';
-import WebView, { WebViewMessageEvent } from 'react-native-webview';
-import { useDispatch } from 'react-redux';
+import WebView from 'react-native-webview';
 
 
 export default function PokedexScreen() {
-  const dispatch = useDispatch();
-
-  const handleWebViewMessage = useCallback((event: WebViewMessageEvent) => {
-    try {
-      const { data } = event.nativeEvent;
-      const parsedData = JSON.parse(data);
-      
-      if (parsedData) {
-        if (parsedData.liked) {
-          dispatch(addFavorite(parsedData));
-        } else {
-          dispatch(removeFavorite(parsedData.name));
-        }
-      }
-
-    } catch (error) {
-      console.error('Erro ao processar a mensagem do WebView:', error);
-    }
-  }, [dispatch]);
-
-
-
+  
+  const handleWebViewMessage = useWebViewHandler();
 
   return (
     <SafeAreaView style={{ flex: 1, }}>

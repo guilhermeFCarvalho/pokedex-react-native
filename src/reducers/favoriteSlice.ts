@@ -1,11 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { Pokemon } from "../models/Pokemon";
 
-interface Pokemon {
-    name: string;
-    image: string;
-    types: string[];
-    abilities: string[];
-}
+
 
 interface FavoritesState {
     favorites: Pokemon[];

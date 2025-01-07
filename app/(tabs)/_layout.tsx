@@ -2,9 +2,9 @@ import React from 'react';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Tabs } from 'expo-router';
 import Colors from '@/constants/Colors';
-import { useColorScheme } from '@/components/useColorScheme';
+import { useColorScheme } from '@/src/components/common/useColorScheme';
 import { useSelector } from 'react-redux';
-import { RootState } from '@/reducers/store';
+import { RootState } from '@/src/reducers/store';
 import { View, Text } from 'react-native';
 
 function TabBarIcon(props: {

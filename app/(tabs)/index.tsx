@@ -1,6 +1,6 @@
 import { StyleSheet, Image } from 'react-native';
-import { Text, View } from '@/components/Themed';
-import { MonoText } from '@/components/StyledText';
+import { Text, View } from '@/src/components/common/Themed';
+import { MonoText } from '@/src/components/common/StyledText';
 import WebView from 'react-native-webview';
 import { useState } from 'react';
 

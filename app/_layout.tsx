@@ -8,8 +8,8 @@ import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
 import 'react-native-reanimated';
 
-import { useColorScheme } from '@/components/useColorScheme';
-import { persistor, store } from '@/reducers/store';
+import { useColorScheme } from '@/src/components/common/useColorScheme';
+import { persistor, store } from '@/src/reducers/store';
 import { PersistGate } from 'redux-persist/integration/react';
 
 export {
