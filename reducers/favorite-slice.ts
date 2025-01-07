@@ -21,12 +21,10 @@ const favoritesSlice = createSlice({
     reducers: {
         addFavorite(state, action: PayloadAction<Pokemon>) {
 
-            
             const isAlreadyFavorite = state.favorites.some(
                 (pokemon) => pokemon.name === action.payload.name
             );
 
-        
             if (!isAlreadyFavorite) {
                 state.favorites.push(action.payload);
             }

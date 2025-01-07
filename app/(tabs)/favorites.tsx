@@ -3,12 +3,15 @@ import { Text, View } from '@/components/Themed';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '@/reducers/store';
 import { removeFavorite } from '@/reducers/favorite-slice';
+import { useEffect } from 'react';
 
 export default function FavoritesScreen() {
   const dispatch = useDispatch();
   const pokemons = useSelector(
     (state: RootState) => state.favorites.favorites
   );
+
+  useEffect(()=> console.log(pokemons))
 
   const handleRemove = (pokemonName: string) => {
     dispatch(removeFavorite(pokemonName));

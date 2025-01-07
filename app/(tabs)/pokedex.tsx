@@ -12,12 +12,12 @@ export default function PokedexScreen() {
     try {
       const { data } = event.nativeEvent;
       const parsedData = JSON.parse(data);
-
-      if (parsedData?.pokemon) {
-        if (parsedData?.liked) {
-          dispatch(addFavorite(parsedData.pokemon));
+      
+      if (parsedData) {
+        if (parsedData.liked) {
+          dispatch(addFavorite(parsedData));
         } else {
-          dispatch(removeFavorite(parsedData.pokemon.name));
+          dispatch(removeFavorite(parsedData.name));
         }
       }
 
