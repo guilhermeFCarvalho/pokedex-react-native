@@ -2,24 +2,27 @@ import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { addFavorite, removeFavorite } from '@/src/reducers/favoriteSlice';
 import { WebViewMessageEvent } from 'react-native-webview';
+import { Pokemon } from '../models/pokemon';
+import { safeParseJSON } from '../utils/safeParseJSON';
+
+
+export type PokemonLiked = Pokemon & {
+  liked: boolean;
+};
 
 export function useWebViewHandler() {
   const dispatch = useDispatch();
 
   return useCallback((event: WebViewMessageEvent) => {
-    try {
-      const { data } = event.nativeEvent;
-      const parsedData = JSON.parse(data);
+    const { data } = event.nativeEvent;
 
-      if (parsedData) {
-        if (parsedData.liked) {
-          dispatch(addFavorite(parsedData));
-        } else {
-          dispatch(removeFavorite(parsedData.name));
-        }
+    const parsedData = safeParseJSON<PokemonLiked>(data);
+    if (parsedData) {
+      if (parsedData.liked) {
+        dispatch(addFavorite(parsedData));
+      } else {
+        dispatch(removeFavorite(parsedData.name));
       }
-    } catch (error) {
-      console.error('Erro ao processar a mensagem do WebView:', error);
     }
   }, [dispatch]);
 }

@@ -1,4 +1,4 @@
-import { Pokemon } from "@/src/models/Pokemon";
+import { Pokemon } from "@/src/models/pokemon";
 import { View, Image, Text, StyleSheet, TouchableOpacity } from "react-native";
 
 interface IPokemonCardProps {

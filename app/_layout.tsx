@@ -11,6 +11,7 @@ import 'react-native-reanimated';
 import { useColorScheme } from '@/src/components/common/useColorScheme';
 import { persistor, store } from '@/src/reducers/store';
 import { PersistGate } from 'redux-persist/integration/react';
+import { LoadingScreen } from '@/src/components/common/LoadingScreen';
 
 export {
   ErrorBoundary,
@@ -28,9 +29,6 @@ export default function RootLayout() {
     ...FontAwesome.font,
   });
 
-  useEffect(() => {
-    if (error) throw error;
-  }, [error]);
 
   useEffect(() => {
     if (loaded) {
@@ -39,7 +37,7 @@ export default function RootLayout() {
   }, [loaded]);
 
   if (!loaded) {
-    return null;
+    return <LoadingScreen/>;
   }
 
   return <RootLayoutNav />;
@@ -50,7 +48,7 @@ function RootLayoutNav() {
 
   return (
     <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
+      <PersistGate loading={<LoadingScreen />} persistor={persistor}>
         <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
           <Stack>
             <Stack.Screen name="(tabs)" options={{ headerShown: false }} />

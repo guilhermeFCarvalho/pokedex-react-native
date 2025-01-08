@@ -1,4 +1,4 @@
-import { Pokemon } from '../models/Pokemon';
+import { Pokemon } from '../models/pokemon';
 import favoritesReducer, { addFavorite, removeFavorite } from './favoriteSlice';
 
 describe('favoritesSlice', () => {

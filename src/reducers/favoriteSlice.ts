@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import { Pokemon } from "../models/Pokemon";
+import { Pokemon } from "../models/pokemon";
 
 interface FavoritesState {
     favorites: Pokemon[];
