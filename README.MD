@@ -9,6 +9,7 @@ Este é um app desenvolvido em React Native usando o Expo, que renderiza em uma 
 * Possui uma estrutura de navegação com tabs para acessar diferentes telas de Home, Pokedex e Favoritos.
 * Permite que o usuário exclua os Pokemons que salvou da WebView
 * Possui cobertura de testes no reducer
+* Pré-carregamento da WebView e utilização de cache para diminuir tempos de loading
 
 
 ### Como rodar o projeto
