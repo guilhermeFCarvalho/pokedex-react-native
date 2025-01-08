@@ -5,10 +5,10 @@ import WebView from 'react-native-webview';
 import { useState } from 'react';
 
 export default function HomeScreen() {
-  const [loaded, setLoaded] = useState(false)
+  const [loaded, setLoaded] = useState(false);
 
   return (
-    <View style={styles.container}>
+    <View style={styles.container} >
       <Image
         source={require("@/assets/images/pokemon-cafe.png")}
         style={styles.image}
@@ -19,10 +19,12 @@ export default function HomeScreen() {
       </MonoText>
       {!loaded && (
         <WebView
-          source={{ uri: 'http://192.168.5.66:3000' }}
-          onLoadEnd={() => { setLoaded(true) }}
+          source={{ uri: process.env.EXPO_PUBLIC_WEBVIEW_URL || "" }}
+          onLoadEnd={() => {
+            setLoaded(true);
+          }}
           cacheEnabled={true}
-          containerStyle={{ width:0, height:0, position:'absolute' }}
+          containerStyle={{ width: 0, height: 0, position: 'absolute' }}
         />
       )}
     </View>
@@ -49,8 +51,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
   },
   subtitle: {
-    textAlign: "center",
+    textAlign: 'center',
     fontSize: 16,
-
   },
 });

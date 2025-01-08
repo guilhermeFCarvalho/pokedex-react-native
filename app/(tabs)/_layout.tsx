@@ -48,7 +48,7 @@ export default function TabLayout() {
           title: `Favoritos${favoriteCount > 0 ? ` (${favoriteCount})` : ''}`,
           tabBarIcon: ({ color }) => {
             return (
-              <View style={{ position: 'relative' }} testID="favorites-tab-icon">
+              <View style={{ position: 'relative' }} >
                 <TabBarIcon name="heart" color={color} />
                 <View
                   style={{
@@ -61,7 +61,7 @@ export default function TabLayout() {
                     right: '-50%',
                   }}
                 >
-                  <Text style={{ color: '#fff' }} testID="favorite-count">
+                  <Text style={{ color: '#fff' }} >
                     {favoriteCount}
                   </Text>
                 </View>
