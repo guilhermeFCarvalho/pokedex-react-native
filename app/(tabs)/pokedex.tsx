@@ -11,7 +11,7 @@ export default function PokedexScreen() {
     <SafeAreaView style={{ flex: 1, }}>
 
       <WebView
-        source={{ uri: process.env.EXPO_PUBLIC_WEBVIEW_URL }}
+        source={{ uri: process.env.EXPO_PUBLIC_WEBVIEW_URL || "" }}
         cacheEnabled={true}
         cacheMode={'LOAD_CACHE_ELSE_NETWORK'}
         androidLayerType="hardware"
